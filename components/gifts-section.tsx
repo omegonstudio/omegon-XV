@@ -40,7 +40,7 @@ export default function GiftsSection() {
             <div className="space-y-6">
               <div className="bg-white p-6 rounded-lg border border-gray-200">
                 <h3 className="text-lg font-semibold text-[#781207] mb-2">Alias</h3>
-                <div className="flex items-center justify-center gap-4">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <code className="bg-gray-100 px-4 py-2 rounded text-lg font-mono">luuusita.mp</code>
                   <Button
                     size="sm"
@@ -56,7 +56,7 @@ export default function GiftsSection() {
 
               <div className="bg-white p-6 rounded-lg border border-gray-200">
                 <h3 className="text-lg font-semibold text-[#781207] mb-2">CVU</h3>
-                <div className="flex items-center justify-center gap-4">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <code className="bg-gray-100 px-4 py-2 rounded text-lg font-mono">0000003100015712010119</code>
                   <Button
                     size="sm"
