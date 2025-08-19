@@ -208,41 +208,8 @@ export default function RSVPSection() {
                 />
               </div>
 
-              {/* Transporte */}
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-[#781207] mb-4">Transporte</h3>
-
-                <div className="flex items-center space-x-2">
-                  <Input
-                    id="transport"
-                    type="checkbox"
-                    checked={formData.transport}
-                    onChange={(e) => handleInputChange("transport", e.target.checked)}
-                    className="mt-1"
-                  />
-                  <Label htmlFor="transport" className="text-gray-700">
-                    Necesito transporte
-                  </Label>
-                </div>
-              </div>
-
-              {/* Restricciones Dietéticas */}
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-[#781207] mb-4">Restricciones Dietéticas</h3>
-
-                <div>
-                  <Label htmlFor="dietaryRestrictions" className="text-gray-700">
-                    ¿Tienes alguna restricción dietética?
-                  </Label>
-                  <Input
-                    id="dietaryRestrictions"
-                    value={formData.dietaryRestrictions}
-                    onChange={(e) => handleInputChange("dietaryRestrictions", e.target.value)}
-                    className="mt-1"
-                    placeholder="Especifica tus restricciones dietéticas aquí"
-                  />
-                </div>
-              </div>
+             
+             
 
               <Button
                 type="submit"
