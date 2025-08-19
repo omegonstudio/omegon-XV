@@ -61,7 +61,7 @@ export default function QuinceaneraCard() {
               Abrir Invitación
             </button>
 
-            <p className="text-sm text-[#781207]/60 mt-4">Toca para abrir y escuchar música</p>
+            
           </div>
         </div>
       )}
