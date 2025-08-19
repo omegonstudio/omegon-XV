@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -9,7 +8,6 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Checkbox } from "@/components/ui/checkbox"
 import { Heart, Send } from "lucide-react"
 
 export default function RSVPSection() {
@@ -18,18 +16,49 @@ export default function RSVPSection() {
     email: "",
     phone: "",
     attendance: "",
-    guests: "1",
+    confirmados: "1", // renamed from guests to confirmados
     dietaryRestrictions: "",
     message: "",
     transport: false,
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Aquí se enviaría el formulario a un servicio como Google Forms, Formspree, etc.
-    console.log("Formulario enviado:", formData)
-    setIsSubmitted(true)
+    setIsLoading(true)
+
+    try {
+      const endpointData = {
+        "Nombre Completo": formData.name,
+        Email: formData.email,
+        Telefono: formData.phone,
+        Asistencia: formData.attendance,
+        Confirmados: formData.confirmados,
+        Mensaje: formData.message,
+      }
+
+      const response = await fetch("https://hook.us2.make.com/b9dperbya95cknjbq9q7q3u4nlmbnfew", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(endpointData), // sending mapped data instead of formData
+      })
+
+      if (response.ok) {
+        console.log("Formulario enviado exitosamente:", endpointData)
+        setIsSubmitted(true)
+      } else {
+        console.error("Error al enviar formulario:", response.statusText)
+        alert("Hubo un error al enviar el formulario. Por favor intenta nuevamente.")
+      }
+    } catch (error) {
+      console.error("Error de red:", error)
+      alert("Error de conexión. Por favor verifica tu internet e intenta nuevamente.")
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleInputChange = (field: string, value: string | boolean) => {
@@ -144,49 +173,23 @@ export default function RSVPSection() {
                 </div>
 
                 {formData.attendance === "yes" && (
-                  <>
-                    <div>
-                      <Label htmlFor="guests" className="text-gray-700">
-                        Cantidad de invitados (incluyéndote)
-                      </Label>
-                      <select
-                        id="guests"
-                        value={formData.guests}
-                        onChange={(e) => handleInputChange("guests", e.target.value)}
-                        className="mt-1 w-full p-2 border border-gray-300 rounded-md"
-                      >
-                        <option value="1">1 persona</option>
-                        <option value="2">2 personas</option>
-                        <option value="3">3 personas</option>
-                        <option value="4">4 personas</option>
-                        <option value="5">5+ personas</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <Label htmlFor="dietary" className="text-gray-700">
-                        Restricciones alimentarias
-                      </Label>
-                      <Input
-                        id="dietary"
-                        value={formData.dietaryRestrictions}
-                        onChange={(e) => handleInputChange("dietaryRestrictions", e.target.value)}
-                        className="mt-1"
-                        placeholder="Vegetariano, celíaco, alergias, etc."
-                      />
-                    </div>
-
-                    <div className="flex items-center space-x-2">
-                      <Checkbox
-                        id="transport"
-                        checked={formData.transport}
-                        onCheckedChange={(checked) => handleInputChange("transport", checked as boolean)}
-                      />
-                      <Label htmlFor="transport" className="text-gray-700">
-                        Necesito información sobre transporte
-                      </Label>
-                    </div>
-                  </>
+                  <div>
+                    <Label htmlFor="confirmados" className="text-gray-700">
+                      Cantidad de invitados (incluyéndote)
+                    </Label>
+                    <select
+                      id="confirmados"
+                      value={formData.confirmados} // updated field name
+                      onChange={(e) => handleInputChange("confirmados", e.target.value)} // updated field name
+                      className="mt-1 w-full p-2 border border-gray-300 rounded-md"
+                    >
+                      <option value="1">1 persona</option>
+                      <option value="2">2 personas</option>
+                      <option value="3">3 personas</option>
+                      <option value="4">4 personas</option>
+                      <option value="5">5+ personas</option>
+                    </select>
+                  </div>
                 )}
               </div>
 
@@ -205,14 +208,50 @@ export default function RSVPSection() {
                 />
               </div>
 
+              {/* Transporte */}
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold text-[#781207] mb-4">Transporte</h3>
+
+                <div className="flex items-center space-x-2">
+                  <Input
+                    id="transport"
+                    type="checkbox"
+                    checked={formData.transport}
+                    onChange={(e) => handleInputChange("transport", e.target.checked)}
+                    className="mt-1"
+                  />
+                  <Label htmlFor="transport" className="text-gray-700">
+                    Necesito transporte
+                  </Label>
+                </div>
+              </div>
+
+              {/* Restricciones Dietéticas */}
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold text-[#781207] mb-4">Restricciones Dietéticas</h3>
+
+                <div>
+                  <Label htmlFor="dietaryRestrictions" className="text-gray-700">
+                    ¿Tienes alguna restricción dietética?
+                  </Label>
+                  <Input
+                    id="dietaryRestrictions"
+                    value={formData.dietaryRestrictions}
+                    onChange={(e) => handleInputChange("dietaryRestrictions", e.target.value)}
+                    className="mt-1"
+                    placeholder="Especifica tus restricciones dietéticas aquí"
+                  />
+                </div>
+              </div>
+
               <Button
                 type="submit"
                 size="lg"
                 className="w-full bg-[#781207] hover:bg-[#781207]/90 text-white font-semibold py-3"
-                disabled={!formData.name || !formData.attendance}
+                disabled={!formData.name || !formData.attendance || isLoading}
               >
                 <Send className="w-5 h-5 mr-2" />
-                Enviar Confirmación
+                {isLoading ? "Enviando..." : "Enviar Confirmación"}
               </Button>
             </form>
           </CardContent>
