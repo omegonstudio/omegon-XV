@@ -44,6 +44,16 @@ export default function HeroSection() {
 
   return (
     <section className="relative h-screen flex items-center justify-center bg-white text-[#781207] overflow-hidden">
+      <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 z-0 opacity-70">
+        <Image
+          src="/images/floral-decoration-left.png"
+          alt="Decorative red roses left"
+          width={400}
+          height={400}
+          className="w-40 h-40 md:w-56 md:h-56 lg:w-64 lg:h-64"
+        />
+      </div>
+
       <div className="absolute top-4 right-4 md:top-8 md:right-8 z-0 opacity-80">
         <Image
           src="/images/floral-decoration.png"

@@ -4,9 +4,17 @@ export default function MenuSection() {
   return (
     <section className="py-16 px-4 bg-white">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-serif font-bold text-[#781207] text-center mb-12">Menú</h2>
+        <h2 className="text-4xl font-serif font-bold text-[#781207] text-center mb-8">Menú</h2>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="flex justify-center mb-12 relative">
+          <img
+            src="/images/menu-floral-border.png"
+            alt="Decorative floral border"
+            className="w-96 h-auto opacity-80 relative z-0"
+          />
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8 relative z-10">
           <Card className="p-6 border-[#f3c374] border-2">
             <CardContent className="p-0">
               <h3 className="text-xl font-semibold text-[#781207] mb-4">🍕 Entrada</h3>
