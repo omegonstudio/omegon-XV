@@ -43,8 +43,17 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section className="relative h-screen flex items-center justify-center bg-white text-[#781207] overflow-hidden">
-      <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 z-0 opacity-70">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/images/marble-background.jpg')",
+        }}
+      />
+
+      <div className="absolute inset-0 bg-white/20" />
+
+      <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 z-10 opacity-70">
         <Image
           src="/images/floral-decoration-left.png"
           alt="Decorative red roses left"
@@ -54,7 +63,7 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className="absolute top-4 right-4 md:top-8 md:right-8 z-0 opacity-80">
+      <div className="absolute top-4 right-4 md:top-8 md:right-8 z-10 opacity-80">
         <Image
           src="/images/floral-decoration.png"
           alt="Decorative red roses"
@@ -64,7 +73,7 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
         <div className="mb-8">
           <h1 className="text-6xl md:text-8xl font-handwriting font-bold mb-4 text-[#781207]">Luana</h1>
           <h2 className="text-3xl md:text-4xl font-serif font-light mb-2 text-[#781207]/90">Mis 15 Años</h2>

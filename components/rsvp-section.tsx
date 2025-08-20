@@ -211,7 +211,8 @@ export default function RSVPSection() {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full bg-[#781207] hover:bg-[#781207]/90 text-white font-semibold py-3"
+                variant="outline"
+                className="w-full bg-white/80 backdrop-blur-sm border-[#781207]/20 hover:bg-white/90 text-[#781207] font-semibold py-3"
                 disabled={!formData.name || !formData.attendance || isLoading}
               >
                 <Send className="w-5 h-5 mr-2" />
