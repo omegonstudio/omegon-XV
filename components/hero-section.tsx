@@ -69,7 +69,7 @@ export default function HeroSection() {
           alt="Decorative red roses mobile"
           width={300}
           height={300}
-          className="w-32 h-32"
+          className="w-40 h-40"
         />
       </div>
 
