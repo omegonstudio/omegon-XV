@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import HeroSection from "@/components/hero-section"
+import QuoteSection from "@/components/quote-section"
 import DressCodeSection from "@/components/dress-code-section"
 import LocationSection from "@/components/location-section"
 import MenuSection from "@/components/menu-section"
@@ -31,7 +32,10 @@ export default function QuinceaneraCard() {
   return (
     <div className="min-h-screen relative overflow-hidden">
       <audio id="background-music" loop preload="auto" className="hidden">
-        <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/quincea%C3%B1era-song.mp3-KcXeD3tFOxOtmFtGz4MEt6NNqX88k5.mp3" type="audio/mpeg" />
+        <source
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/quincea%C3%B1era-song.mp3-KcXeD3tFOxOtmFtGz4MEt6NNqX88k5.mp3"
+          type="audio/mpeg"
+        />
         Tu navegador no soporta el elemento de audio.
       </audio>
 
@@ -60,8 +64,6 @@ export default function QuinceaneraCard() {
             >
               Abrir Invitación
             </button>
-
-            
           </div>
         </div>
       )}
@@ -71,6 +73,7 @@ export default function QuinceaneraCard() {
         <MusicControl />
         <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
           <HeroSection />
+          <QuoteSection />
           <DressCodeSection />
           <LocationSection />
           <MenuSection />

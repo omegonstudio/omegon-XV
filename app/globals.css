@@ -4,9 +4,9 @@
 @theme inline {
   --font-serif: var(--font-playfair);
   --font-sans: var(--font-open-sans);
+  /* Adding handwriting font variable */
+  --font-handwriting: var(--font-dancing-script);
 }
-
-@custom-variant dark (&:is(.dark *));
 
 :root {
   --background: oklch(1 0 0);

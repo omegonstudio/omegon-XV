@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 interface TimeLeft {
   days: number
@@ -42,14 +43,25 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-[#781207] to-[#a01810] text-white overflow-hidden">
-      <div className="absolute inset-0 bg-black/20"></div>
+    <section className="relative h-screen flex items-center justify-center bg-white text-[#781207] overflow-hidden">
+      <div className="absolute top-4 right-4 md:top-8 md:right-8 z-0 opacity-80">
+        <Image
+          src="/images/floral-decoration.png"
+          alt="Decorative red roses"
+          width={500}
+          height={500}
+          className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80"
+        />
+      </div>
+
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-6xl md:text-8xl font-serif font-bold mb-4 text-[#f3c374]">Luana</h1>
-          <h2 className="text-3xl md:text-4xl font-serif font-light mb-2 text-[#f3c374]/90">Mis 15 Años</h2>
-          <p className="text-xl md:text-2xl font-light tracking-wide mb-2">25 de Octubre • 20:30 hs</p>
-          <p className="text-lg md:text-xl font-light tracking-wide opacity-90">Una celebración especial</p>
+          <h1 className="text-6xl md:text-8xl font-handwriting font-bold mb-4 text-[#781207]">Luana</h1>
+          <h2 className="text-3xl md:text-4xl font-serif font-light mb-2 text-[#781207]/90">Mis 15 Años</h2>
+          <p className="text-xl md:text-2xl font-light tracking-wide mb-2 text-[#781207]/80">
+            25 de Octubre • 20:30 hs
+          </p>
+          <p className="text-lg md:text-xl font-light tracking-wide text-[#781207]/70">Una celebración especial</p>
         </div>
 
         <div className="flex justify-center gap-4 md:gap-8 mb-12">
@@ -67,7 +79,7 @@ export default function HeroSection() {
 
         <Button
           size="lg"
-          className="bg-[#f3c374] text-[#781207] hover:bg-[#f3c374]/90 font-semibold px-8 py-3 text-lg"
+          className="bg-[#781207] text-white hover:bg-[#781207]/90 font-semibold px-8 py-3 text-lg"
           onClick={() => document.getElementById("rsvp")?.scrollIntoView({ behavior: "smooth" })}
         >
           Confirmar Asistencia
