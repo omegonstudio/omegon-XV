@@ -63,6 +63,16 @@ export default function HeroSection() {
         />
       </div>
 
+      <div className="absolute top-4 right-4 z-10 opacity-70 md:hidden">
+        <Image
+          src="/images/floral-decoration-mobile-right.png"
+          alt="Decorative red roses mobile"
+          width={300}
+          height={300}
+          className="w-32 h-32"
+        />
+      </div>
+
       <div className="absolute top-4 right-4 md:top-8 md:right-8 z-10 opacity-80 hidden md:block">
         <Image
           src="/images/floral-decoration.png"
@@ -73,19 +83,9 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-10 opacity-80 md:hidden">
-        <Image
-          src="/images/floral-decoration-mobile.png"
-          alt="Decorative red roses mobile"
-          width={400}
-          height={200}
-          className="w-48 h-24"
-        />
-      </div>
-
       <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-6xl md:text-8xl font-handwriting font-bold mb-4 text-[#781207]">Luana</h1>
+          <h1 className="text-6xl md:text-8xl font-handwriting font-bold mb-4 text-black md:text-[#781207]">Luana</h1>
           <h2 className="text-3xl md:text-4xl font-serif font-light mb-2 text-[#781207]/90">Mis 15 Años</h2>
           <p className="text-xl md:text-2xl font-light tracking-wide mb-2 text-[#781207]/80">
             25 de Octubre • 20:30 hs
