@@ -53,7 +53,7 @@ export default function HeroSection() {
 
       <div className="absolute inset-0 bg-white/20" />
 
-      <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 z-10 opacity-70">
+      <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 z-10 opacity-70 hidden md:block">
         <Image
           src="/images/floral-decoration-left.png"
           alt="Decorative red roses left"
@@ -69,7 +69,7 @@ export default function HeroSection() {
           alt="Decorative red roses"
           width={500}
           height={500}
-          className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80"
+          className="w-32 h-32 md:w-64 md:h-64 lg:w-80 lg:h-80"
         />
       </div>
 
