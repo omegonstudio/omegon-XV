@@ -73,6 +73,7 @@ export default function MenuSection() {
                 <li>• Fernet</li>
                 <li>• Gancia</li>
                 <li>• Vino con gas</li>
+                <li>• Vodka</li>
               </ul>
             </div>
           </CardContent>
